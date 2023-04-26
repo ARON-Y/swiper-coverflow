@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>coverflow</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -33,11 +33,11 @@
         <div class="swiper-slide">
           <div class="inner">
             <div class="con">
-              <img src="img/pic1.png" alt="사진에 대한 설명 생략" />
-              <h2>Lorem ipsum dolor sit.</h2>
+              <img src="img/pic1.png" alt="밑에서 바라본 큰 빌딩의 모습" />
+              <h2>Very large building from below</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo, obcaecati.
+                The view of a very large building from below and a transparent
+                building look very expensive.
               </p>
             </div>
           </div>
@@ -46,11 +46,11 @@
         <div class="swiper-slide">
           <div class="inner">
             <div class="con">
-              <img src="img/pic2.png" alt="사진에 대한 설명 생략" />
-              <h2>Lorem ipsum dolor sit.</h2>
+              <img src="img/pic2.png" alt="a man who looks at someone" />
+              <h2>a man who looks at someone</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo, obcaecati.
+                A man who is looking at the person who takes the picture. He
+                looks somewhat lonely.
               </p>
             </div>
           </div>
@@ -59,11 +59,14 @@
         <div class="swiper-slide">
           <div class="inner">
             <div class="con">
-              <img src="img/pic3.png" alt="사진에 대한 설명 생략" />
-              <h2>Lorem ipsum dolor sit.</h2>
+              <img
+                src="img/pic3.png"
+                alt="A YouTube cannel button with a lot of subscribers"
+              />
+              <h2>A YouTube cannel button</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo, obcaecati.
+                A YouTube channel button with a lot of subscribers. However, it
+                is not known whether it is a gold button or a silver button.
               </p>
             </div>
           </div>
@@ -101,6 +104,40 @@
 
       <div class="swiper-pagination"></div>
     </section>
+
+    <script>
+      /* 생성자 함수 : 객체지향같이 어떠한 틀(주형)을 통해서 새로운 개체를 생성하는 함수. 아랫줄의 new가 생성자 함수이다. */
+      var swiper = new Swiper(".gallery", {
+        navigation: {
+          // 이전, 다음 버튼에 관한 키 값
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        loop: true, //무한루프
+        spaceBetween: 0, //슬라이더 사이 공간은 0
+        speed: 1000, //슬라이딩 되는 속도
+        effect: "coverflow", //어떤 이펙트 효과인지. 이 값에 따라서 coverflowEffect의 키 값이 달라진다.
+        grabCursor: true, //커서의 모양이 손바닥 모양
+        centeredSlides: true, //coverflow효과에서 활성화된 슬라이더의 위치가 정가운데 배치할지의 여부
+        slidesPerView: "auto", //화면에 보여지는 슬라이더의 갯수, 자동 = 브라우저의 크기에 맞춰서 보여지도록 하는 것
+        autoplay: {
+          display: 1000,
+          diableOnInteraction: true, //오토플레이 중 중간개입시 자동롤링(rolling)의 재시작 여부
+        },
+        coverflowEffect: {
+          //위의 effect에 따라서 이곳의 키 값이 달라진다.
+          rotate: 50, //슬라이더의 회전각도
+          stretch: -100, //슬라이더 간의 거리
+          depth: 400, //깊이효과 (슬라이더 회전각도에 따라서 3D 깊이효과)
+          modifier: 1, // 위의 여러 효과의 배수를 지정
+          slideShadows: false, //슬라이더의 그림자효과
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction", //타입을 지정
+        },
+      });
+    </script>
 
     <!-- 플러그인 : 라이브러리, 편의기능을 모아둔 것. 플러그인을 잘(well) 사용하려면 70%정도는 학습을 하고 사용해야 한다.
     되도록 적게 사용하는 것이 길게 봤을 때 이득이다. 공부할 시간에 js에 투자하는게 이득 -->
