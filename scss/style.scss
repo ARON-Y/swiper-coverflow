@@ -87,6 +87,33 @@
         }
       }
     }
+    .swiper-slide-prev .inner,
+    .swiper-slide-next .inner {
+      opacity: 0.7;
+    }
+
+    .swiper-slide-active {
+      .inner {
+        opacity: 1;
+        box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.7);
+
+        .con {
+          h2 {
+            &:after {
+              width: 100%;
+            }
+          }
+        }
+
+        &::before {
+          animation: ani 1s linear 1;
+        }
+
+        &::after {
+          animation: ani 1s 0.3s linear 1;
+        }
+      }
+    }
   }
   .auto {
     position: absolute;
@@ -142,5 +169,21 @@
       font-size: 18px;
       color: #555;
     }
+  }
+}
+
+@keyframes ani {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
   }
 }
